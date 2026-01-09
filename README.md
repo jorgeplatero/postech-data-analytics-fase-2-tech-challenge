@@ -1,30 +1,69 @@
 # Modelo Preditivo para o Fechamento IBOVESPA
 
-## Descrição do Projeto
+Este projeto consiste no desenvolvimento de um modelo preditivo para o índice IBOVESPA, a principal referência do mercado acionário brasileiro. O objetivo é prever o valor de fechamento oficial do índice, utilizando técnicas de análise de séries temporais e garantindo uma acurácia superior a 70% para suporte à tomada de decisão financeira.
 
-O IBOVESPA é o índice de referência do mercado acionário brasileiro, criado em 1968, que mede o retorno total das carteiras teóricas compostas pelas ações mais negociadas na B3. Seu cálculo é baseado no peso das ações na carteira teórica e no valor de suas cotações do dia.
-Para calcular o índice, multiplica-se o peso de cada ação pela sua cotação, resultando no número de pontos do Ibovespa. Devido à constante variação dos preços das ações conforme a oferta e demanda, o cálculo do índice é atualizado minuto a minuto, refletindo suas oscilações.
+### Pré-requisitos
 
-A Bolsa de Valores brasileira (B3) calcula e divulga o valor do IBOVESPA em tempo real durante o horário de negociação das 9h às 17h. Após o fechamento do mercado, o processo de encerramento ocorre. Às 17h, é liberado o valor preliminar de fechamento, considerando os últimos preços negociados. Entre 17h01 e 17h30, negociações continuam no after market, o que pode impactar esse valor.
-O fechamento definitivo ocorre por volta das 18h após o leilão de encerramento, onde ocorrem as últimas negociações do dia. Esse leilão determina os preços de fechamento das ações, permitindo calcular o valor oficial de fechamento.
-Posteriormente ao fechamento do mercado, a Bolsa realiza ajustes decorrentes de operações pós-mercado. Por volta das 19h30, é divulgado o valor final de fechamento do índice, que serve como referência para avaliar o desempenho diário do mercado acionário.
+Certifique-se de ter o Python 3.11 instalado em seu sistema.
 
-Este projeto tem por obtivo o desenvolvimento de um modelo preditivo capaz de prever o fechamento da bolsa, apresentando:
+Para sistemas baseados em Linux (Ubuntu/Debian), instale o suporte ao ambiente virtual:
 
-- Modelo com storytelling, desde a captura do dado até a entrega do modelo;
-- Justificativa da técnica utilizada;
-- Acurácia adequada (acima de 70%).
+```bash
+sudo apt update && sudo apt install python3.11-venv
+```
 
-## Tecnologias Utilizadas
+### Instalação
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg" width="50" height="50"/>
+Siga os passos abaixo para configurar o ambiente e instalar as dependências:
 
-## Fonte de Dados
+```bash
+#clonar o repositório
+git clone https://github.com/jorgeplatero/previsao-ibovespa.git
+cd postech-data-analytics-techchallenge-fase-2
 
-Série IBOVESPA: <a style="text-decoration:none;" href="https://br.investing.com/indices/bovespa-historical-data" target="_blank">link</a>.
+#criar o ambiente virtual
+python -m venv venv
 
-## Colaboradores 
+#ativar o ambiente virtual
+# No Linux/Mac:
+source venv/bin/activate
+# No Windows:
+venv\Scripts\activate
 
-https://github.com/mateus-albuquerque
+#instalar as dependências
+pip install -r requirements.txt
+```
 
-https://github.com/adriellytsilva
+### Como Executar o Modelo
+
+Com o ambiente virtual ativado, você pode executar o script principal ou abrir o notebook de análise para visualizar o storytelling e os resultados:
+
+```bash
+# Para executar o script principal
+python main.py
+
+# Ou para abrir o Jupyter Notebook
+jupyter lab
+```
+
+### Tecnologias
+
+| Componente | Tecnologia | Versão | Descrição |
+| :--- | :--- | :--- | :--- |
+| **ML** | **Statsforecast** | `1.6.0` | Biblioteca para desenvolvimento de modelos de ML |
+| **Análise de Dados** | **Pandas** | `2.2.1` | Biblioteca para manipulação de dados |
+| **Visualização** | **Plotly** |`5.20.0` | Biblioteca para criação de gráficos dinâmicos e interativos |
+| **Linguagem** | **Python** | `>=3.11` | Linguagem para desenvolvimento de scripts |
+| **Gerenciamento** | **Venv** | `-` | Gerenciador de ambientes virtuais para isolamento de dependências 
+
+### Fontes de Dados
+
+Os dados históricos utilizados foram extraídos do site Investing.
+
+Link para a base de dados: https://br.investing.com/indices/bovespa-historical-data
+
+### Colaboradores
+
+[Mateus Albuquerque](https://github.com/mateus-albuquerque)
+
+[Adrielly Silva](https://github.com/adriellytsilva)
